@@ -1,3 +1,4 @@
 # train yolov9 models
-python train_dual.py --workers 8 --device 0 --batch 16 --data data/crane_hook.yaml --img 640 --cfg models/detect/yolov9-c.yaml --weights weights/yolov9-m.pt --name yolov9-m --hyp hyp.scratch-high.yaml --epochs 5
+python train_dual.py --workers 8 --device 0 --batch 16 --data data/crane_hook.yaml --img 640 --cfg models/detect/yolov9-m.yaml --weights weights/yolov9-m.pt --name yolov9-m --hyp hyp.scratch-high.yaml --epochs 5
 
+python val_dual.py --task test --data data/crane_hook.yaml --img 640 --batch 32 --conf 0.001 --iou 0.45 --device 0 --weights runs/train/yolov9-m2/weights/best.pt --save-json --name yolov9_m2_miyuntest_640_val
